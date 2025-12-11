@@ -1,4 +1,4 @@
-import { ArrowUpRight, User, ShoppingCart, Search, Menu } from 'lucide-react';
+import { TrendingUp , User, ShoppingCart, Search, Menu } from 'lucide-react';
 import Link from 'next/link';
 import SearchInput from './searchInput';
 import ThemeSwitcherWrapper from './theme-switcher';
@@ -6,14 +6,14 @@ import { Badge } from './ui/badge';
 
 const Navbar = () => {
 	return (
-		<div className='fixed w-full py-4 px-4 md:px-8 bg-gray-background text-gray-foreground flex flex-wrap justify-between items-center'>
+		<div className='fixed w-full py-4 px-4 md:px-9 lg:px-20 bg-gray-background text-gray-foreground flex flex-wrap justify-between items-center'>
 			<div className='flex flex-wrap gap-2 md:gap-8 shrink basis-auto'>
                 <div className="flex justify-center items-center md:hidden w-9 h-9">
                     <Menu className='w-7 h-7' />
                 </div>
 				<div className='flex flex-wrap gap-2'>
 					<div className='w-9 h-9 flex justify-center items-center bg-primary rounded-[10px] border'>
-						<ArrowUpRight className='text-primary-foreground w-6 h-6' />
+						<TrendingUp  className='text-primary-foreground w-6 h-6' />
 					</div>
 					<div className='flex justify-center items-center'>
 						<Link href={"/"} className='text-[23px] leading-[23px] font-bold text-center'>
