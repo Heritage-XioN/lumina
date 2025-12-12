@@ -1,6 +1,6 @@
-import { TrendingUp , User, ShoppingCart, Search, Menu } from 'lucide-react';
+import { TrendingUp , User, ShoppingBag, Search, Menu } from 'lucide-react';
 import Link from 'next/link';
-import SearchInput from './searchInput';
+import SearchInput from './ui/searchInput';
 import ThemeSwitcherWrapper from './theme-switcher';
 import { Badge } from './ui/badge';
 
@@ -56,7 +56,7 @@ const Navbar = () => {
 					{/* Shopping Cart */}
 					<div className='flex justify-center items-center w-10 h-10 hover:bg-card rounded-full p-1 transition-colors'>
 						<button className='relative cursor-pointer'>
-							<ShoppingCart />
+							<ShoppingBag />
 							<Badge className='bg-destructive dark:text-white absolute bottom-0 z-50 w-4 h-4 font-bold text-[8px] '>
 								25
 							</Badge>

@@ -29,10 +29,10 @@ const HeroSection = () => {
 					</div>
 					<div className='mb-6 flex justify-center md:justify-start'>
 						<div className='flex gap-6'>
-							<button className='bg-primary text-primary-foreground px-8 lg:py-4 lg:px-8 md:py-2 md:px-4 flex justify-center items-center lg:text-[16px] lg:leading-[150%] font-medium rounded-lg text-center'>
+							<button className='bg-primary text-primary-foreground px-6 lg:py-4 lg:px-8 md:py-2 md:px-4 flex justify-center items-center lg:text-[16px] lg:leading-[150%] font-medium rounded-lg text-center'>
 								Shop now <ArrowRight className='ml-1 text-center w-4 h-4' /> 
 							</button>
-							<button className='bg-background text-primary py-4 px-8 md:py-2 md:px-4 lg:py-4 lg:px-8 text-[16px] leading-[150%] font-medium rounded-lg border'>
+							<button className='bg-background text-primary py-4 px-6 md:py-2 md:px-4 lg:py-4 lg:px-8 text-[16px] leading-[150%] font-medium rounded-lg border'>
 								view Lookbook
 							</button>
 						</div>

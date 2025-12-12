@@ -37,7 +37,7 @@ const Products = () => {
 	const [value, setValue] = useState('all');
 
 	return (
-		<div className='pt-26 pb-20 px-4 md:px-9 lg:px-20 '>
+		<div className='pt-26 pb-20 px-4 md:px-9 lg:px-20'>
 			<div className='mb-4'>
 				<h3 className='text-[30px] leading-[120%] font-bold'>
 					Discover Products
@@ -80,10 +80,10 @@ const Products = () => {
 			{/* load more component link */}
 			<div className='flex md:hidden lg:flex justify-center items-center w-full'>
 				<Link
-					href={''}
+					href={`/${value}`}
 					className='flex justify-center items-center text-link-text text-[16px] leadimg-[150%] rounded-lg border px-6 py-4 hover:bg-card/50 transition-colors'
 				>
-					load more products <ArrowRight className='ml-2 w-4 h-4' />
+					Load more products <ArrowRight className='ml-2 w-4 h-4' />
 				</Link>
 			</div>
 		</div>

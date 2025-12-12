@@ -16,7 +16,7 @@ const SearchInput = () => {
 				<SearchIcon />
 			</InputGroupAddon>
 			<InputGroupAddon align='inline-end'>
-				<InputGroupButton>Search</InputGroupButton>
+				<InputGroupButton className='hover:bg-card rounded-lg transition-colors text-link-text'>Search</InputGroupButton>
 			</InputGroupAddon>
 		</InputGroup>
 	);
