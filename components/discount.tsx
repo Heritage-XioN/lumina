@@ -15,7 +15,7 @@ const Discount = () => {
           <p className="text-[18px] leading-[156%] text-center text-white w-[576px]">Join the Lumina community and upgrade your lifestyle today. Use code <strong>WELCOME20</strong> at checkout.</p>
         </div>
         <div className="w-full flex justify-center items-center">
-          <button className='px-10 py-4 border bg-white rounded-lg text-[#4f39f6] font-bold shadow-2xl'>
+          <button className='px-10 py-4 border bg-white rounded-lg text-[#4f39f6] font-bold shadow-2xl cursor-pointer'>
             Claim Offer
           </button>
         </div>

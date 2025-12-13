@@ -94,7 +94,7 @@ const Footer = () => {
 					</div>
 					<div className='flex gap-2'>
 						<input type="email" placeholder='Enter your email' className='w-full p-2 bg-[#1d293d] text-[#8e949e] placeholder:text-[#8e949e] rounded-lg px-4 py-3' />
-                        <button className='w-14 h-12 flex justify-center items-center rounded-lg bg-[#4f39f6]'><ArrowRight className='text-white w-5 h-5' /></button>
+                        <button className='w-14 h-12 flex justify-center items-center rounded-lg bg-[#4f39f6] cursor-pointer'><ArrowRight className='text-white w-5 h-5' /></button>
 					</div>
 				</div>
 			</div>
