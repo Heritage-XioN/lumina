@@ -2,7 +2,7 @@ import React from 'react'
 
 const Discount = () => {
   return (
-    <div className='mt-8 mb-20 py-18 px-4 md:px-9 lg:px-20 bg-[#4f39f6]'>
+    <div className='mt-8 py-18 px-4 md:px-9 lg:px-20 bg-[#4f39f6]'>
         <div className="w-full flex justify-center items-center mb-4">
           <div className="py-1 px-3 rounded-lg bg-white/10 backdrop-blur-lg border border-white/10">
             <p className="text-xs leading-[133%] font-bold text-white">LIMITED TIME OFFER</p>

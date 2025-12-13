@@ -6,7 +6,7 @@ import Discount from '@/components/discount';
 
 export default function Home() {
 	return (
-		<div className=' mb-96'>
+		<div className='overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
 			<HeroSection />
 			<Products />
 			<Featues />
