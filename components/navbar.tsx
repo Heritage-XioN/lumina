@@ -6,7 +6,7 @@ import { Badge } from './ui/badge';
 
 const Navbar = () => {
 	return (
-		<div className='fixed w-full py-4 px-4 md:px-9 lg:px-20 bg-gray-background text-gray-foreground flex flex-wrap justify-between items-center z-50'>
+		<div className='fixed w-full py-4 px-4 md:px-9 lg:px-20 bg-gray-background/50 text-gray-foreground flex flex-wrap justify-between items-center z-50 backdrop-blur-md'>
 			{/* left container */}
 			<div className='flex flex-wrap gap-2 md:gap-8 shrink basis-auto'>
 				{/* menu btn */}

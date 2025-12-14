@@ -87,12 +87,12 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #020617;
   --foreground: oklch(0.985 0 0);
   --gray-background: oklch(0.145 0 0);
   --gray-foreground: oklch(0.985 0 0);
-  --link-text: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --link-text: #909eb4;
+  --card: #0f172a;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -130,4 +130,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.gradient{
+  background: linear-gradient(135deg, #4c1d95 0%, #2e1065 100%);
+  opacity: 90;
+  inset: 0;
+}
+
+.radialGradient{
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 20%);
+}
+.bg-glow{
+  background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.15) 0%, rgba(15, 23, 42, 0) 50%);
 }

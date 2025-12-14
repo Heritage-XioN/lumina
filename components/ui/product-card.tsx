@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import { Heart, ShoppingBag, StarIcon } from 'lucide-react';
 
-
 const ProductCard = () => {
 	return (
-		<div className='w-full max-w-[320px] mx-auto group cursor-pointer'>
+		<div className='w-full max-w-[320px] mx-auto group cursor-pointer dark:bg-slate-900 dark:rounded-2xl dark:border dark:border-slate-800 dark:hover:border-violet-500/30 dark:transition-all dark:duration-300 dark:hover:shadow-2xl dark:hover:shadow-violet-900/10 pb-3'>
 			<div className='relative aspect-square bg-gray-100 rounded-2xl overflow-hidden'>
 				{/* Badge & Favorite Button */}
 				<div className='absolute top-3 left-3 z-20'>
@@ -49,19 +48,19 @@ const ProductCard = () => {
 			</div>
 
 			{/* Product Details */}
-			<div className='mt-4 flex justify-between items-start'>
+			<div className='mt-4 flex justify-between items-start px-3 pt-2'>
 				<div>
-					<h3 className='text-gray-900 font-medium text-lg'>
+					<h3 className='text-gray-900 font-medium text-lg dark:text-white dark:group-hover:text-violet-300 transition-colors'>
 						Minimalist Audio
 					</h3>
-					<p className='text-gray-500 text-sm mt-1'>Audio</p>
+					<p className='text-gray-500 text-sm mt-1 dark:text-violet-400'>Audio</p>
 				</div>
 				<div>
-					<span className='text-gray-900 font-medium text-lg'>$199.00</span>
+					<span className='text-gray-900 font-medium text-lg dark:text-white'>$199.00</span>
 					<div className='flex justify-center items-center gap-1 mt-2'>
-						<Image src={"/star.png"} alt='star' width={16} height={16} />
-            <p className='text-xs leading-[133%]'>4.9</p>
-            <p className='text-xs leading-[133%] text-link-text'>(25)</p>
+						<Image src={'/star.png'} alt='star' width={16} height={16} />
+						<p className='text-xs leading-[133%]'>4.9</p>
+						<p className='text-xs leading-[133%] text-link-text'>(25)</p>
 					</div>
 				</div>
 			</div>
