@@ -8,7 +8,7 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<footer className='bottom-o bg-[#0f172b] w-full pt-18 pb-4 px-4 md:px-9 lg:px-20'>
+		<footer className=' bg-[#0f172b] w-full pt-18 pb-4 px-4 md:px-9 lg:px-20'>
 			<div className='grid grid-cols-1 md:grid-cols-4 gap-6 mb-10'>
 				<div>
 					<div className='flex flex-wrap gap-2 mb-4'>
