@@ -1,10 +1,3 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Heart, Star, ChevronRight } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import ImageGallery from '@/components/image-gallery';
 import ProductInfo from '@/components/product-info';

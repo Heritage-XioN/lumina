@@ -1,3 +1,14 @@
+// Types
+interface CartItem {
+	id: string;
+	name: string;
+	variant: string;
+	price: number;
+	quantity: number;
+	image: string;
+	inStock: boolean;
+}
+
 interface ProductColor {
 	name: string;
 	value: string;
@@ -279,5 +290,39 @@ export const productList = [
 			{ id: 2, src: '/window.svg', alt: 'View 2' },
 			{ id: 3, src: '/next.svg', alt: 'View 3' },
 		] as ProductImage[],
+	},
+];
+
+
+
+
+// Sample cart data
+export const initialCartItems: CartItem[] = [
+	{
+		id: '1',
+		name: 'Minimalist Audio Pods',
+		variant: 'Obsidian Black',
+		price: 199.0,
+		quantity: 1,
+		image: '/globe.svg',
+		inStock: true,
+	},
+	{
+		id: '2',
+		name: 'Ergonomic Workspace Chair',
+		variant: 'Graphite Grey',
+		price: 450.0,
+		quantity: 1,
+		image: '/file.svg',
+		inStock: true,
+	},
+	{
+		id: '3',
+		name: 'Mechanical Keyboard',
+		variant: 'Retro White',
+		price: 145.0,
+		quantity: 2,
+		image: '/window.svg',
+		inStock: true,
 	},
 ];
