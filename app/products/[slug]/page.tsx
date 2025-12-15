@@ -42,7 +42,7 @@ interface product {
 	colors: ProductColor[];
 }
 
-// Sample product data
+// example product data
 const product = {
 	name: 'Minimalist Audio Pods',
 	category: 'Audio',
@@ -77,8 +77,6 @@ const product = {
 };
 
 const ProductPage = () => {
-	
-
 	return (
 		<main className='min-h-screen pt-24 pb-16 px-4 md:px-8 lg:px-16 xl:px-24 bg-background'>
 			{/* Breadcrumb */}
@@ -102,7 +100,7 @@ const ProductPage = () => {
 			{/* Separator */}
 			<Separator className='my-12' />
 
-			{/* Related Products Section (placeholder) */}
+			{/* Related Products Section*/}
 			<section className='space-y-8'>
 				<h2 className='text-2xl font-bold text-foreground'>Related Products</h2>
 				<RelatedProducts />

@@ -55,12 +55,12 @@ const Navbar = () => {
 					</div>
 					{/* Shopping Cart */}
 					<div className='flex justify-center items-center w-10 h-10 hover:bg-card rounded-full p-1 transition-colors'>
-						<button className='relative cursor-pointer'>
+						<Link href={"/cart"} className='relative cursor-pointer'>
 							<ShoppingBag />
 							<Badge className='bg-destructive dark:text-white absolute bottom-0 z-50 w-4 h-4 font-bold text-[8px] '>
 								25
 							</Badge>
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>

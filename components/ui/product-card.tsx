@@ -2,7 +2,19 @@ import Image from 'next/image';
 import { Heart, ShoppingBag, StarIcon } from 'lucide-react';
 import Link from 'next/link';
 
-const ProductCard = () => {
+interface productCard {
+	name: string;
+	category: string;
+	price: number;
+	rating: number;
+	reviews: number;
+	image1: string;
+	image2: string;
+}
+
+
+
+const ProductCard = ({name, category, price, rating, reviews, image1, image2}: productCard) => {
 	return (
 		<div className='w-full max-w-[320px] mx-auto group cursor-pointer dark:bg-slate-900 dark:rounded-2xl dark:border dark:border-slate-800 dark:hover:border-violet-500/30 dark:transition-all dark:duration-300 dark:hover:shadow-2xl dark:hover:shadow-violet-900/10 pb-3'>
 			<div className='relative aspect-square bg-gray-100 rounded-2xl overflow-hidden'>
@@ -19,7 +31,7 @@ const ProductCard = () => {
 				{/* IMAGE 1: Default View (Behind) */}
 				<div className='absolute inset-0 z-0'>
 					<Image
-						src='https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=1000&auto=format&fit=crop'
+						src={image1}
 						alt='Product Default'
 						fill
 						className='object-cover object-center bg-gray-200 transition-transform duration-700 ease-in-out group-hover:scale-110'
@@ -29,7 +41,7 @@ const ProductCard = () => {
 				{/* IMAGE 2: Hover View (Front) */}
 				<div className='absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100 z-10'>
 					<Image
-						src='https://images.unsplash.com/photo-1629367494173-c78a56567877?q=80&w=1000&auto=format&fit=crop'
+						src={image2}
 						alt='Product Hover'
 						fill
 						className='object-cover object-center bg-gray-200 transition-transform duration-700 ease-in-out group-hover:scale-110'
@@ -49,24 +61,24 @@ const ProductCard = () => {
 			</div>
 
 			{/* Product Details */}
-			<Link href={'/products/shoe'}>
-				<div className='mt-4 flex justify-between items-start px-3 pt-2'>
+			<Link href={`/products/${name}`}>
+				<div className='mt-4 flex justify-between px-3 pt-2'>
 					<div>
 						<h3 className='text-gray-900 font-medium text-lg dark:text-white dark:group-hover:text-violet-300 transition-colors'>
-							Minimalist Audio
+							{name}
 						</h3>
 						<p className='text-gray-500 text-sm mt-1 dark:text-violet-400'>
-							Audio
+							{category}
 						</p>
 					</div>
-					<div>
-						<span className='text-gray-900 font-medium text-lg dark:text-white'>
-							$199.00
+					<div className='flex flex-col justify-between grow shrink'>
+						<span className='text-gray-900 font-medium text-lg dark:text-white flex justify-end items-center'>
+							${price}
 						</span>
-						<div className='flex justify-center items-center gap-1 mt-2'>
+						<div className='flex justify-end items-center gap-1 mt-2 '>
 							<Image src={'/star.png'} alt='star' width={16} height={16} />
-							<p className='text-xs leading-[133%]'>4.9</p>
-							<p className='text-xs leading-[133%] text-link-text'>(25)</p>
+							<p className='text-xs leading-[133%]'>{rating}</p>
+							<p className='text-xs leading-[133%] text-link-text'>({reviews})</p>
 						</div>
 					</div>
 				</div>
