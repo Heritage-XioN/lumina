@@ -71,7 +71,7 @@ const CartOrderSummary = () => {
 
 				{/* Checkout Button */}
 				<Link
-					href='/products/checkout'
+					href='/checkout'
 					className='block w-full bg-violet-600 hover:bg-violet-700 text-white font-semibold py-4 px-8 rounded-xl text-center transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/25 active:scale-[0.98]'
 				>
 					Checkout

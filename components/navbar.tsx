@@ -17,7 +17,7 @@ const Navbar = () => {
                 </div>
 				{/* logo */}
 				<div className='flex flex-wrap gap-2'>
-					<div className='w-9 h-9 flex justify-center items-center bg-primary rounded-[10px] border'>
+					<div className='w-9 h-9 flex justify-center items-center bg-primary rounded-[10px] border dark:bg-linear-to-r from-violet-400 to-fuchsia-400'>
 						<TrendingUp  className='text-primary-foreground w-6 h-6' />
 					</div>
 					<div className='flex justify-center items-center'>

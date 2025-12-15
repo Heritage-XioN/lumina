@@ -35,7 +35,7 @@ const HeroSection = () => {
 						<div className='flex gap-6'>
 							<Link
 								href={''}
-								className='bg-primary text-primary-foreground dark:bg-violet-700 dark:text-white px-6 lg:py-4 lg:px-8 md:py-2 md:px-4 flex justify-center items-center lg:text-[16px] lg:leading-[150%] font-medium rounded-lg text-center'
+								className='bg-primary text-primary-foreground dark:bg-violet-700 dark:text-white px-6 lg:py-4 lg:px-8 md:py-2 md:px-4 flex justify-center items-center lg:text-[16px] lg:leading-[150%] font-medium rounded-lg text-center dark:bg-linear-to-r from-violet-400 to-fuchsia-400'
 							>
 								Shop now <ArrowRight className='ml-1 text-center w-4 h-4' />
 							</Link>

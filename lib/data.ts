@@ -325,4 +325,13 @@ export const initialCartItems: CartItem[] = [
 		image: '/window.svg',
 		inStock: true,
 	},
+	{
+		id: '4',
+		name: 'Mechanical Keyboard',
+		variant: 'Retro White',
+		price: 145.0,
+		quantity: 2,
+		image: '/window.svg',
+		inStock: true,
+	},
 ];

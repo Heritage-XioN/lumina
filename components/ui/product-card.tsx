@@ -52,7 +52,7 @@ const ProductCard = ({name, category, price, rating, reviews, image1, image2}: p
 				<div className='absolute bottom-4 left-4 right-4 z-30 translate-y-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100'>
 					<button
 						onClick={() => console.log('testing cart button')}
-						className='w-full bg-white text-gray-900 font-medium py-3 rounded-xl shadow-lg hover:bg-gray-50 flex items-center justify-center gap-2 transition-transform active:scale-95'
+						className='w-full bg-white text-gray-900 font-medium py-3 rounded-xl shadow-lg hover:bg-gray-50 flex items-center justify-center gap-2 transition-transform active:scale-95 cursor-pointer'
 					>
 						<ShoppingBag className='w-4 h-4' />
 						Add to Cart
