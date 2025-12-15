@@ -8,6 +8,9 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import ImageGallery from '@/components/image-gallery';
 import ProductInfo from '@/components/product-info';
+import ProductSpecs from '@/components/product-specs';
+import Breadcrumb from '@/components/ui/breadcrumb';
+import RelatedProducts from '@/components/related-products';
 
 // Product data type
 interface ProductColor {
@@ -74,36 +77,12 @@ const product = {
 };
 
 const ProductPage = () => {
-	const [selectedColor, setSelectedColor] = useState<ProductColor>(
-		product.colors[1]
-	);
-	const [quantity, setQuantity] = useState(1);
-	const [selectedImage, setSelectedImage] = useState(0);
-
-	const handleQuantityChange = (delta: number) => {
-		setQuantity((prev) => Math.max(1, prev + delta));
-	};
+	
 
 	return (
 		<main className='min-h-screen pt-24 pb-16 px-4 md:px-8 lg:px-16 xl:px-24 bg-background'>
 			{/* Breadcrumb */}
-			<nav className='flex items-center gap-2 text-sm mb-8'>
-				<Link
-					href='/'
-					className='text-muted-foreground hover:text-foreground transition-colors'
-				>
-					Home
-				</Link>
-				<ChevronRight className='w-4 h-4 text-muted-foreground' />
-				<Link
-					href='/products'
-					className='text-muted-foreground hover:text-foreground transition-colors'
-				>
-					{product.category}
-				</Link>
-				<ChevronRight className='w-4 h-4 text-muted-foreground' />
-				<span className='text-foreground font-medium'>{product.name}</span>
-			</nav>
+			<Breadcrumb category={product.category} name={product.name} />
 
 			{/* Main Product Section */}
 			<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16'>
@@ -118,22 +97,7 @@ const ProductPage = () => {
 			<Separator className='my-12' />
 
 			{/* Product Specifications */}
-			<section className='space-y-8'>
-				<h2 className='text-2xl font-bold text-foreground'>
-					Product Specifications
-				</h2>
-				<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-					{product.specifications.map((spec, index) => (
-						<div
-							key={index}
-							className='flex justify-between items-center py-4 border-b border-border'
-						>
-							<span className='text-muted-foreground'>{spec.label}</span>
-							<span className='text-foreground font-medium'>{spec.value}</span>
-						</div>
-					))}
-				</div>
-			</section>
+			<ProductSpecs specifications={product.specifications} />
 
 			{/* Separator */}
 			<Separator className='my-12' />
@@ -141,9 +105,7 @@ const ProductPage = () => {
 			{/* Related Products Section (placeholder) */}
 			<section className='space-y-8'>
 				<h2 className='text-2xl font-bold text-foreground'>Related Products</h2>
-				<div className='text-muted-foreground'>
-					Related products will be displayed here.
-				</div>
+				<RelatedProducts />
 			</section>
 		</main>
 	);
