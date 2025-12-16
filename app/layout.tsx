@@ -28,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html lang='en' suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+				className={`h-screen ${geistSans.variable} ${geistMono.variable} antialiased `}
 			>
 				<ThemeProvider
 					attribute='class'
@@ -38,7 +38,6 @@ export default function RootLayout({
 				>
 					<Navbar />
 					{children}
-					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>

@@ -81,7 +81,7 @@ const Products = () => {
 			<div className='flex md:hidden lg:flex justify-center items-center w-full'>
 				<Link
 					href={`/${value}`}
-					className='flex justify-center items-center text-link-text text-[16px] leadimg-[150%] rounded-lg border px-6 py-4 hover:bg-card/50 transition-colors'
+					className='flex justify-center items-center text-link-text text-[16px] leadimg-[150%] rounded-lg border px-6 py-4 hover:bg-card/50 transition-colors dark:border-slate-700 dark:hover:bg-card/80'
 				>
 					Load more products <ArrowRight className='ml-2 w-4 h-4' />
 				</Link>
