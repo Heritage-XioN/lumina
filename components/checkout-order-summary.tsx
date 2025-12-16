@@ -1,3 +1,4 @@
+"use client"
 import { initialCartItems } from '@/lib/data';
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -17,7 +18,7 @@ const CheckoutOrderSummary = () => {
 				<div className='space-y-4'>
 					{initialCartItems.map((item) => (
 						<div key={item.id} className='flex gap-4'>
-							<div className='relative w-16 h-16 rounded-xl bg-muted overflow-hidden flex-shrink-0'>
+							<div className='relative w-16 h-16 rounded-xl bg-muted overflow-hidden shrink-0'>
 								<Image
 									src={item.image}
 									alt={item.name}

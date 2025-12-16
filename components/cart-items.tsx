@@ -1,11 +1,13 @@
-"use client"
+'use client'
+
+import { useCartStore } from '@/providers/cart-store-provider'
 import { Trash2 } from 'lucide-react';
 import React, { useState } from 'react';
 import Image from 'next/image';
 
 // Types
 interface CartItem {
-	id: string;
+	id: number;
 	name: string;
 	variant: string;
 	price: number;
@@ -17,7 +19,7 @@ interface CartItem {
 // Sample cart data
 const initialCartItems: CartItem[] = [
 	{
-		id: '1',
+		id: 1,
 		name: 'Minimalist Audio Pods',
 		variant: 'Obsidian Black',
 		price: 199.0,
@@ -26,7 +28,7 @@ const initialCartItems: CartItem[] = [
 		inStock: true,
 	},
 	{
-		id: '2',
+		id: 2,
 		name: 'Ergonomic Workspace Chair',
 		variant: 'Graphite Grey',
 		price: 450.0,
@@ -35,7 +37,7 @@ const initialCartItems: CartItem[] = [
 		inStock: true,
 	},
 	{
-		id: '3',
+		id: 3,
 		name: 'Mechanical Keyboard',
 		variant: 'Retro White',
 		price: 145.0,
@@ -45,13 +47,15 @@ const initialCartItems: CartItem[] = [
 	},
 ];
 
-
-
 const CartItems = () => {
+	const { cart } = useCartStore(
+		(state) => state
+	);
+
 	const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
 	const [promoCode, setPromoCode] = useState('');
 
-	const updateQuantity = (id: string, delta: number) => {
+	const updateQuantity = (id: number, delta: number) => {
 		setCartItems((prev) =>
 			prev.map((item) =>
 				item.id === id
@@ -61,13 +65,13 @@ const CartItems = () => {
 		);
 	};
 
-	const removeItem = (id: string) => {
+	const removeItem = (id: number) => {
 		setCartItems((prev) => prev.filter((item) => item.id !== id));
 	};
-
+	console.log("my shit",cart.length)
 	return (
 		<div className='bg-card border-x border-border divide-y divide-border'>
-			{cartItems.map((item) => (
+			{cart.map((item) => (
 				<div
 					key={item.id}
 					className='px-6 py-6 flex flex-col sm:flex-row gap-4 sm:gap-6'

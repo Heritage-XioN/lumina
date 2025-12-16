@@ -5,6 +5,7 @@ import ProductCard from "./ui/product-card"
 
 const RelatedProducts = () => {
   return (
+    // displays the related products on the products details page
     <ScrollArea className="w-full rounded-md border whitespace-nowrap">
       <div className="flex w-max gap-4 space-x-4 p-4">
         {productList.map((items) => (
