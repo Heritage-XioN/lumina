@@ -11,6 +11,13 @@ const CartItems = () => {
 
 	return (
 		<div className='bg-card border-x border-border divide-y divide-border'>
+			{/* state for when cart is empty */}
+			{cart.length === 0 && (
+				<div className='px-6 py-6 flex flex-col sm:flex-row gap-4 sm:gap-6'>
+					<p className='text-foreground text-[14px] font-semibold'>Your cart is empty.</p>
+				</div>
+			)}
+			{/* state for when cart has item(s) */}
 			{cart.map((item) => (
 				<div
 					key={item.id}
@@ -45,7 +52,7 @@ const CartItems = () => {
 									})
 								}
 								disabled={item.quantity <= 1}
-								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground disabled:opacity-50 disabled:cursor-not-allowed'
+								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer'
 							>
 								−
 							</button>
@@ -56,7 +63,7 @@ const CartItems = () => {
 								onClick={() =>
 									updateCartItem(item.id, { quantity: item.quantity + 1 })
 								}
-								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground'
+								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground cursor-pointer'
 							>
 								+
 							</button>

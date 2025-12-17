@@ -1,6 +1,6 @@
 import { Truck, ShieldCheck, RefreshCcw  } from 'lucide-react';
 
-const Featues = () => {
+const Features = () => {
 	return (
 		<div className='pt-8 pb-20 px-4 md:px-9 lg:px-20 '>
 			<div className='grid grid-col-1 md:grid-cols-3 gap-4'>
@@ -54,4 +54,4 @@ const Featues = () => {
 	);
 };
 
-export default Featues;
+export default Features;

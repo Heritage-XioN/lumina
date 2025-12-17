@@ -1,8 +1,12 @@
 "use client"
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { useCartStore } from '@/providers/cart-store-provider';
+
+const FREE_SHIPPING_THRESHOLD = 1000;
+const SHIPPING_ESTIMATE = 25.0;
+const TAX_RATE = 0.08;
 
 const CheckoutOrderSummary = () => {
 	const { cart } = useCartStore(
@@ -14,6 +18,10 @@ const CheckoutOrderSummary = () => {
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);
+	const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_ESTIMATE;
+	const taxEstimate = subtotal * TAX_RATE;
+	const shippingAndTaskEstimate = shipping + taxEstimate
+	const total = subtotal + shipping + taxEstimate;
 	return (
 		<aside className='lg:sticky lg:top-24 h-fit'>
 			<div className='bg-card border border-border rounded-2xl p-6 space-y-6'>
@@ -67,8 +75,8 @@ const CheckoutOrderSummary = () => {
 						</span>
 					</div>
 					<div className='flex justify-between text-sm'>
-						<span className='text-muted-foreground'>Shipping</span>
-						<span className='text-muted-foreground'>Calculated next step</span>
+						<span className='text-muted-foreground'>Shipping and Tax</span>
+						<span className='text-muted-foreground'>${shippingAndTaskEstimate.toFixed(2)}</span>
 					</div>
 				</div>
 
@@ -79,7 +87,7 @@ const CheckoutOrderSummary = () => {
 						<div className='text-right'>
 							<span className='text-xs text-muted-foreground block'>USD</span>
 							<span className='text-2xl font-bold text-violet-500'>
-								${subtotal.toFixed(2)}
+								${total.toFixed(2)}
 							</span>
 						</div>
 					</div>
