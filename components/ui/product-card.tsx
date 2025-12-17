@@ -1,12 +1,12 @@
+'use client';
+
 import Image from 'next/image';
-import { Heart, ShoppingBag, StarIcon } from 'lucide-react';
+import { Heart, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
-import { productCard, productObj } from '@/types/product';
+import { productCard } from '@/types/product';
 import { useCartStore } from '@/providers/cart-store-provider';
 import { CartItemState } from '@/types/cart-store';
 import { toast } from 'sonner';
-
-
 
 const ProductCard = ({
 	id,
@@ -19,7 +19,6 @@ const ProductCard = ({
 	image2,
 	variant,
 }: productCard) => {
-
 	const cartData: CartItemState = {
 		id: id,
 		name: name,
@@ -67,9 +66,9 @@ const ProductCard = ({
 				<div className='absolute bottom-4 left-4 right-4 z-30 translate-y-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100'>
 					<button
 						onClick={() => {
-						addToCart(cartData);
-						toast.success("Event has been created")
-					}}
+							addToCart(cartData);
+							toast.success(`${name} added to cart!`);
+						}}
 						className='w-full bg-white text-gray-900 font-medium py-3 rounded-xl shadow-lg hover:bg-gray-50 flex items-center justify-center gap-2 transition-transform active:scale-95 cursor-pointer'
 					>
 						<ShoppingBag className='w-4 h-4' />
@@ -80,19 +79,19 @@ const ProductCard = ({
 
 			{/* Product Details */}
 			<Link href={`/products/${name}`}>
-				<div className='mt-4 flex justify-between px-3 pt-2'>
-					<div>
+				<div className='mt-4 px-3 pt-2 flex flex-col justify-between min-h-22'>
+					<div className='flex justify-between'>
 						<h3 className='text-gray-900 font-medium text-lg dark:text-white dark:group-hover:text-violet-300 transition-colors'>
 							{name}
 						</h3>
+						<span className='text-gray-900 font-medium text-lg dark:text-white flex justify-end '>
+							${price}
+						</span>
+					</div>
+					<div className='flex justify-between'>
 						<p className='text-gray-500 text-sm mt-1 dark:text-violet-400'>
 							{category}
 						</p>
-					</div>
-					<div className='flex flex-col justify-between grow shrink'>
-						<span className='text-gray-900 font-medium text-lg dark:text-white flex justify-end items-center'>
-							${price}
-						</span>
 						<div className='flex justify-end items-center gap-1 mt-2 '>
 							<Image src={'/star.png'} alt='star' width={16} height={16} />
 							<p className='text-xs leading-[133%]'>{rating}</p>

@@ -28,23 +28,21 @@ const ImageGallery = ({images}: {images: ProductImage[]}) => {
 							src={img.src}
 							alt={img.alt}
 							fill
-							className='object-cover p-2'
+							className=''
 						/>
 					</button>
 				))}
 			</div>
 
 			{/* Main Image */}
-			<div className='relative flex-1 aspect-square rounded-2xl overflow-hidden bg-card border border-border'>
+			<div className='relative flex-1 aspect-square rounded-2xl overflow-hidden bg-card border border-border shadow'>
 				<Image
 					src={images[selectedImage]?.src || '/globe.svg'}
 					alt='Main Product'
 					fill
-					className='object-contain p-8'
+					className=''
 					priority
 				/>
-				{/* Floating product element */}
-				<div className='absolute top-6 right-6 w-12 h-12 rounded-full bg-white/80 dark:bg-slate-700/80 shadow-lg' />
 			</div>
 		</div>
 	);

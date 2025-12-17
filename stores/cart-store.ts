@@ -2,9 +2,8 @@ import { CartItemState, CartState, cartStore } from '@/types/cart-store';
 import { createStore } from 'zustand/vanilla';
 
 export const defaultInitState: CartState = {
-	cart: []
+	cart: [],
 };
-
 
 // cart store
 export const createCartStore = (initState: CartState = defaultInitState) => {
@@ -12,9 +11,21 @@ export const createCartStore = (initState: CartState = defaultInitState) => {
 		// cart initial state
 		...initState,
 
-		// action for adding product from the cart
+		// action for adding product to the cart (increments quantity if exists)
 		addToCart: (CartItem: CartItemState) =>
-			set((state) => ({ cart: [...state.cart, CartItem] })),
+			set((state) => {
+				const existingItem = state.cart.find((item) => item.id === CartItem.id);
+				if (existingItem) {
+					return {
+						cart: state.cart.map((item) =>
+							item.id === CartItem.id
+								? { ...item, quantity: item.quantity + CartItem.quantity }
+								: item
+						),
+					};
+				}
+				return { cart: [...state.cart, CartItem] };
+			}),
 
 		// action for updating product from the cart
 		updateCartItem: (id: number, updates: Partial<Omit<CartItemState, 'id'>>) =>

@@ -63,10 +63,26 @@ const product = {
 		{ label: 'Charging', value: 'USB-C & Wireless' },
 	] as ProductSpec[],
 	images: [
-		{ id: 0, src: '/globe.svg', alt: 'View 0' },
-		{ id: 1, src: '/file.svg', alt: 'View 1' },
-		{ id: 2, src: '/window.svg', alt: 'View 2' },
-		{ id: 3, src: '/next.svg', alt: 'View 3' },
+		{
+			id: 0,
+			src: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+			alt: 'View 0',
+		},
+		{
+			id: 1,
+			src: 'https://images.unsplash.com/photo-1608377205849-29e866f59df4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+			alt: 'View 1',
+		},
+		{
+			id: 2,
+			src: 'https://images.unsplash.com/photo-1621095782689-b496a07e3fc2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIxfHx8ZW58MHx8fHx8',
+			alt: 'View 2',
+		},
+		{
+			id: 3,
+			src: 'https://images.unsplash.com/photo-1510674485131-dc88d96369b4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDUwfHx8ZW58MHx8fHx8',
+			alt: 'View 3',
+		},
 	] as ProductImage[],
 };
 

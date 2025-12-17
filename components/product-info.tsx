@@ -126,7 +126,7 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 				<button
 					onClick={() => {
 						addToCart(cartData);
-						toast.success("Event has been created")
+						toast.success(`${product.name} added to cart!`);
 					}}
 					className='flex-1 bg-violet-600 hover:bg-violet-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/25 active:scale-[0.98] cursor-pointer'
 				>

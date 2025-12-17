@@ -2,62 +2,12 @@
 
 import { useCartStore } from '@/providers/cart-store-provider';
 import { Trash2 } from 'lucide-react';
-import React, { useState } from 'react';
 import Image from 'next/image';
-import { CartItem } from '@/types/product';
-
-// Sample cart data
-const initialCartItems: CartItem[] = [
-	{
-		id: 1,
-		name: 'Minimalist Audio Pods',
-		variant: 'Obsidian Black',
-		price: 199.0,
-		quantity: 1,
-		image: '/globe.svg',
-		inStock: true,
-	},
-	{
-		id: 2,
-		name: 'Ergonomic Workspace Chair',
-		variant: 'Graphite Grey',
-		price: 450.0,
-		quantity: 1,
-		image: '/file.svg',
-		inStock: true,
-	},
-	{
-		id: 3,
-		name: 'Mechanical Keyboard',
-		variant: 'Retro White',
-		price: 145.0,
-		quantity: 2,
-		image: '/window.svg',
-		inStock: true,
-	},
-];
 
 const CartItems = () => {
 	const { cart, updateCartItem, removeFromCart } = useCartStore(
 		(state) => state
 	);
-
-	const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
-	const [promoCode, setPromoCode] = useState('');
-
-	const updateQuantity = (id: number, delta: number) => {
-		setCartItems((prev) =>
-			prev.map((item) =>
-				item.id === id
-					? { ...item, quantity: Math.max(1, item.quantity + delta) }
-					: item
-			)
-		);
-	};
-
-	const removeItem = (id: number) => {
-		setCartItems((prev) => prev.filter((item) => item.id !== id));
-	};
 
 	return (
 		<div className='bg-card border-x border-border divide-y divide-border'>
@@ -68,12 +18,7 @@ const CartItems = () => {
 				>
 					{/* Product Image */}
 					<div className='relative w-24 h-24 rounded-xl bg-muted overflow-hidden shrink-0'>
-						<Image
-							src={item.image}
-							alt={item.name}
-							fill
-							className='object-contain p-3'
-						/>
+						<Image src={item.image} alt={item.name} fill className='' />
 					</div>
 
 					{/* Product Info */}
@@ -95,9 +40,12 @@ const CartItems = () => {
 						<div className='flex items-center gap-2 mt-4'>
 							<button
 								onClick={() =>
-									updateCartItem(item.id, { quantity: item.quantity - 1 })
+									updateCartItem(item.id, {
+										quantity: Math.max(1, item.quantity - 1),
+									})
 								}
-								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground'
+								disabled={item.quantity <= 1}
+								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground disabled:opacity-50 disabled:cursor-not-allowed'
 							>
 								−
 							</button>

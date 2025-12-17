@@ -28,7 +28,7 @@ const CheckoutOrderSummary = () => {
 									src={item.image}
 									alt={item.name}
 									fill
-									className='object-contain p-2'
+									className=''
 								/>
 							</div>
 							<div className='flex-1 min-w-0'>
