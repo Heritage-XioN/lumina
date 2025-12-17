@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { productCard, productObj } from '@/types/product';
 import { useCartStore } from '@/providers/cart-store-provider';
 import { CartItemState } from '@/types/cart-store';
+import { toast } from 'sonner';
 
 
 
@@ -65,7 +66,10 @@ const ProductCard = ({
 				{/* ADD TO CART BUTTON */}
 				<div className='absolute bottom-4 left-4 right-4 z-30 translate-y-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100'>
 					<button
-						onClick={() => addToCart(cartData)}
+						onClick={() => {
+						addToCart(cartData);
+						toast.success("Event has been created")
+					}}
 						className='w-full bg-white text-gray-900 font-medium py-3 rounded-xl shadow-lg hover:bg-gray-50 flex items-center justify-center gap-2 transition-transform active:scale-95 cursor-pointer'
 					>
 						<ShoppingBag className='w-4 h-4' />
