@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import CartItems from '@/components/cart-items';
 import CartOrderSummary from '@/components/cart-order-summary';

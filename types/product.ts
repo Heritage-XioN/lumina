@@ -25,3 +25,30 @@ export interface ProductImage {
 	src: string;
 	alt: string;
 }
+
+export interface productObj {
+	id: number;
+    name: string;
+    category: string;
+    price: number;
+    originalPrice: number;
+    rating: number;
+    reviews: number;
+    inStock: boolean;
+    description: string;
+    colors: ProductColor[];
+    specifications: ProductSpec[];
+    images: ProductImage[];
+}
+
+export interface productCard {
+	id: number;
+	name: string;
+	category: string;
+	price: number;
+	rating: number;
+	reviews: number;
+	image1: string;
+	image2: string;
+	variant: string;
+}

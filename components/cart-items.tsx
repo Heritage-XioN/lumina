@@ -4,17 +4,8 @@ import { useCartStore } from '@/providers/cart-store-provider'
 import { Trash2 } from 'lucide-react';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { CartItem } from '@/types/product';
 
-// Types
-interface CartItem {
-	id: number;
-	name: string;
-	variant: string;
-	price: number;
-	quantity: number;
-	image: string;
-	inStock: boolean;
-}
 
 // Sample cart data
 const initialCartItems: CartItem[] = [
@@ -51,6 +42,7 @@ const CartItems = () => {
 	const { cart } = useCartStore(
 		(state) => state
 	);
+
 
 	const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
 	const [promoCode, setPromoCode] = useState('');

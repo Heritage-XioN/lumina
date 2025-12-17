@@ -2,19 +2,12 @@
 
 import { type ReactNode, createContext, useState, useContext } from 'react'
 import { useStore } from 'zustand'
+import { createCartStore } from '@/stores/cart-store'
+import { type cartStore } from '@/types/cart-store'
+import { CartStoreContext, CartStoreProviderProps } from '@/types/cart-providers'
 
-import { type cartStore, createCartStore } from '@/stores/cart-store'
 
 
-export type CartStoreApi = ReturnType<typeof createCartStore>
-
-export const CartStoreContext = createContext<CartStoreApi | undefined>(
-  undefined,
-)
-
-export interface CartStoreProviderProps {
-  children: ReactNode
-}
 
 export const CartStoreProvider = ({
   children,

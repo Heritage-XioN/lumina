@@ -1,11 +1,16 @@
 "use client"
-import { initialCartItems } from '@/lib/data';
+
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useCartStore } from '@/providers/cart-store-provider';
 
 const CheckoutOrderSummary = () => {
+	const { cart } = useCartStore(
+				(state) => state
+			);
+
     const [discountCode, setDiscountCode] = useState('');
-    const subtotal = initialCartItems.reduce(
+    const subtotal = cart.reduce(
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);
@@ -16,7 +21,7 @@ const CheckoutOrderSummary = () => {
 
 				{/* Cart Items */}
 				<div className='space-y-4'>
-					{initialCartItems.map((item) => (
+					{cart.map((item) => (
 						<div key={item.id} className='flex gap-4'>
 							<div className='relative w-16 h-16 rounded-xl bg-muted overflow-hidden shrink-0'>
 								<Image
