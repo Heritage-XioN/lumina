@@ -1,11 +1,10 @@
-'use client'
+'use client';
 
-import { useCartStore } from '@/providers/cart-store-provider'
+import { useCartStore } from '@/providers/cart-store-provider';
 import { Trash2 } from 'lucide-react';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { CartItem } from '@/types/product';
-
 
 // Sample cart data
 const initialCartItems: CartItem[] = [
@@ -39,10 +38,9 @@ const initialCartItems: CartItem[] = [
 ];
 
 const CartItems = () => {
-	const { cart } = useCartStore(
+	const { cart, updateCartItem, removeFromCart } = useCartStore(
 		(state) => state
 	);
-
 
 	const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
 	const [promoCode, setPromoCode] = useState('');
@@ -60,7 +58,7 @@ const CartItems = () => {
 	const removeItem = (id: number) => {
 		setCartItems((prev) => prev.filter((item) => item.id !== id));
 	};
-	console.log("my shit",cart.length)
+
 	return (
 		<div className='bg-card border-x border-border divide-y divide-border'>
 			{cart.map((item) => (
@@ -96,7 +94,9 @@ const CartItems = () => {
 						{/* Quantity Selector */}
 						<div className='flex items-center gap-2 mt-4'>
 							<button
-								onClick={() => updateQuantity(item.id, -1)}
+								onClick={() =>
+									updateCartItem(item.id, { quantity: item.quantity - 1 })
+								}
 								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground'
 							>
 								−
@@ -105,7 +105,9 @@ const CartItems = () => {
 								{item.quantity}
 							</span>
 							<button
-								onClick={() => updateQuantity(item.id, 1)}
+								onClick={() =>
+									updateCartItem(item.id, { quantity: item.quantity + 1 })
+								}
 								className='w-8 h-8 flex items-center justify-center rounded-lg border border-border hover:bg-accent transition-colors text-foreground'
 							>
 								+
@@ -126,7 +128,7 @@ const CartItems = () => {
 							)}
 						</div>
 						<button
-							onClick={() => removeItem(item.id)}
+							onClick={() => removeFromCart(item.id)}
 							className='p-2 text-muted-foreground hover:text-destructive transition-colors'
 							aria-label='Remove item'
 						>

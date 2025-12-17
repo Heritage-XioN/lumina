@@ -19,7 +19,7 @@ export type CartActions = {
 	addToCart: (CartItem: CartItemState) => void;
 	updateCartItem: (
 		id: number,
-		updates: Partial<Omit<CartState['cart'], 'id'>>
+		updates: Partial<Omit<CartItemState, 'id'>>
 	) => void;
 	removeFromCart: (id: number) => void;
 };
