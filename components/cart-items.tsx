@@ -77,7 +77,7 @@ const CartItems = () => {
 						</div>
 						<button
 							onClick={() => removeFromCart(item.id)}
-							className='p-2 text-muted-foreground hover:text-destructive transition-colors'
+							className='p-2 text-muted-foreground hover:text-destructive transition-colors cursor-pointer'
 							aria-label='Remove item'
 						>
 							<Trash2 className='w-5 h-5' />

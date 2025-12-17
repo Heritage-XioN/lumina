@@ -1,5 +1,6 @@
 "use client"
 
+import { useCartStore } from '@/providers/cart-store-provider';
 import { CartItem } from '@/types/product';
 import React, { useState } from 'react';
 
@@ -7,8 +8,11 @@ import React, { useState } from 'react';
 
 const FREE_SHIPPING_THRESHOLD = 1000;
 const FreeShipingUi = () => {
-	const [cartItems, setCartItems] = useState<CartItem[]>([]);
-	const subtotal = cartItems.reduce(
+	const { cart } = useCartStore(
+			(state) => state
+		);
+	
+	const subtotal = cart.reduce(
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);

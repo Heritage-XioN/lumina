@@ -83,7 +83,7 @@ export default function ProfileDropdown({
                                 <DropdownMenuItem key={item.label} asChild>
                                     <Link
                                         href={item.href}
-                                        className="flex items-center p-3 hover:bg-link-text dark:hover:bg-zinc-800/60 rounded-xl transition-all duration-200 cursor-pointer group hover:shadow-sm border border-transparent hover:border-zinc-200/50 dark:hover:border-zinc-700/50"
+                                        className="flex items-center p-3 hover:bg-link-text dark:hover:bg-zinc-800/60 rounded-xl transition-all duration-200 cursor-pointer group hover:shadow-sm border border-transparent"
                                     >
                                         <div className="flex items-center gap-2 flex-1">
                                             {item.icon}
@@ -91,7 +91,7 @@ export default function ProfileDropdown({
                                                 {item.label}
                                             </span>
                                         </div>
-                                        <div className="flex-shrink-0 ml-auto">
+                                        <div className="shrink-0 ml-auto">
                                             {item.value && (
                                                 <span
                                                     className={cn(
@@ -110,15 +110,15 @@ export default function ProfileDropdown({
                             ))}
                         </div>
 
-                        <DropdownMenuSeparator className="my-3 bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-800" />
+                        <DropdownMenuSeparator className="my-3 bg-linear-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-800" />
 
                         <DropdownMenuItem asChild>
                             <button
                                 type="button"
-                                className="w-full flex items-center gap-3 p-3 duration-200 bg-red-500/10 rounded-xl hover:bg-red-500/20 cursor-pointer border border-transparent hover:border-red-500/30 hover:shadow-sm transition-all group"
+                                className="w-full flex items-center gap-3 p-3 duration-200 rounded-xl hover:bg-violet-400/20 cursor-pointer border border-transparent  hover:shadow-sm transition-all group"
                             >
-                                <LogOut className="w-4 h-4 text-red-500 group-hover:text-red-600" />
-                                <span className="text-sm font-medium text-red-500 group-hover:text-red-600">
+                                <LogOut className="w-4 h-4 text-violet-400 group-hover:text-violet-400" />
+                                <span className="text-sm font-medium text-violet-400 group-hover:text-violet-400">
                                     Sign Out
                                 </span>
                             </button>
