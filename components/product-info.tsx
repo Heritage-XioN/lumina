@@ -1,36 +1,32 @@
-"use client"
+'use client';
 import React, { useState } from 'react';
 import { Badge } from './ui/badge';
 import { Heart, Star } from 'lucide-react';
 import FeatureBadge from './ui/feature-badge';
+import { ProductColor, productObj } from '@/types/product';
+import { CartItemState } from '@/types/cart-store';
+import { useCartStore } from '@/providers/cart-store-provider';
 
+const ProductInfo = ({ product }: { product: productObj }) => {
+	
+	const { addToCart } = useCartStore((state) => state);
 
-interface ProductColor {
-	name: string;
-	value: string;
-	bgClass: string;
-}
-
-
-interface product {
-	name: string;
-	category: string;
-	price: number;
-	originalPrice: number;
-	rating: number;
-	reviews: number;
-	inStock: boolean;
-	description: string;
-	colors: ProductColor[];
-}
-
-const ProductInfo = ({product}: {product: product}) => {
 	const [selectedColor, setSelectedColor] = useState<ProductColor>(
 		product.colors[1]
 	);
 	const [quantity, setQuantity] = useState(1);
-    const handleQuantityChange = (delta: number) => {
+	const handleQuantityChange = (delta: number) => {
 		setQuantity((prev: number) => Math.max(1, prev + delta));
+	};
+
+	const cartData: CartItemState = {
+		id: product.id,
+		name: product.name,
+		variant: selectedColor.name,
+		price: product.price,
+		quantity: quantity,
+		image: product.images[0].src,
+		inStock: true,
 	};
 
 	return (
@@ -127,7 +123,10 @@ const ProductInfo = ({product}: {product: product}) => {
 
 			{/* Add to Cart and Wishlist */}
 			<div className='flex items-center gap-3'>
-				<button className='flex-1 bg-violet-600 hover:bg-violet-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/25 active:scale-[0.98]'>
+				<button
+					onClick={() => addToCart(cartData)}
+					className='flex-1 bg-violet-600 hover:bg-violet-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/25 active:scale-[0.98]'
+				>
 					Add to Cart - ${(product.price * quantity).toFixed(2)}
 				</button>
 				<button className='w-14 h-14 flex items-center justify-center border border-border rounded-xl hover:bg-accent transition-colors group'>

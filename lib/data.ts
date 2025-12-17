@@ -1,32 +1,6 @@
-// Types
-interface CartItem {
-	id: string;
-	name: string;
-	variant: string;
-	price: number;
-	quantity: number;
-	image: string;
-	inStock: boolean;
-}
+import { CartItem, ProductColor, ProductImage, productObj, ProductSpec } from "@/types/product";
 
-interface ProductColor {
-	name: string;
-	value: string;
-	bgClass: string;
-}
-
-interface ProductSpec {
-	label: string;
-	value: string;
-}
-
-interface ProductImage {
-	id: number;
-	src: string;
-	alt: string;
-}
-
-export const productList = [
+export const productList: productObj[] = [
 	{
         id: 1,
 		name: 'Minimalist Audio Pods',
@@ -293,45 +267,42 @@ export const productList = [
 	},
 ];
 
-
-
-
 // Sample cart data
-export const initialCartItems: CartItem[] = [
-	{
-		id: '1',
-		name: 'Minimalist Audio Pods',
-		variant: 'Obsidian Black',
-		price: 199.0,
-		quantity: 1,
-		image: '/globe.svg',
-		inStock: true,
-	},
-	{
-		id: '2',
-		name: 'Ergonomic Workspace Chair',
-		variant: 'Graphite Grey',
-		price: 450.0,
-		quantity: 1,
-		image: '/file.svg',
-		inStock: true,
-	},
-	{
-		id: '3',
-		name: 'Mechanical Keyboard',
-		variant: 'Retro White',
-		price: 145.0,
-		quantity: 2,
-		image: '/window.svg',
-		inStock: true,
-	},
-	{
-		id: '4',
-		name: 'Mechanical Keyboard',
-		variant: 'Retro White',
-		price: 145.0,
-		quantity: 2,
-		image: '/window.svg',
-		inStock: true,
-	},
-];
+// export const initialCartItems: CartItem[] = [
+// 	{
+// 		id: '1',
+// 		name: 'Minimalist Audio Pods',
+// 		variant: 'Obsidian Black',
+// 		price: 199.0,
+// 		quantity: 1,
+// 		image: '/globe.svg',
+// 		inStock: true,
+// 	},
+// 	{
+// 		id: '2',
+// 		name: 'Ergonomic Workspace Chair',
+// 		variant: 'Graphite Grey',
+// 		price: 450.0,
+// 		quantity: 1,
+// 		image: '/file.svg',
+// 		inStock: true,
+// 	},
+// 	{
+// 		id: '3',
+// 		name: 'Mechanical Keyboard',
+// 		variant: 'Retro White',
+// 		price: 145.0,
+// 		quantity: 2,
+// 		image: '/window.svg',
+// 		inStock: true,
+// 	},
+// 	{
+// 		id: '4',
+// 		name: 'Mechanical Keyboard',
+// 		variant: 'Retro White',
+// 		price: 145.0,
+// 		quantity: 2,
+// 		image: '/window.svg',
+// 		inStock: true,
+// 	},
+// ];

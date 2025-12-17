@@ -1,12 +1,13 @@
-import { TrendingUp , User, ShoppingBag, Search, Menu } from 'lucide-react';
+import { TrendingUp, Search } from 'lucide-react';
 import Link from 'next/link';
 import SearchInput from './ui/searchInput';
 import ThemeSwitcherWrapper from './theme-switcher';
-import { Badge } from './ui/badge';
 import { MenuBtn } from './ui/menu-btn';
 import ProfileDropdown from './kokonutui/profile-dropdown';
+import CartIcon from './ui/cart-icon';
 
 const Navbar = () => {
+		
 	return (
 		<div className='fixed w-full py-4 px-4 md:px-9 lg:px-20 bg-gray-background/50 text-gray-foreground flex flex-wrap justify-between items-center z-50 backdrop-blur-md'>
 			{/* left container */}
@@ -55,12 +56,7 @@ const Navbar = () => {
 					</div>
 					{/* Shopping Cart */}
 					<div className='flex justify-center items-center w-10 h-10 hover:bg-card rounded-full p-1 transition-colors'>
-						<Link href={"/cart"} className='relative cursor-pointer'>
-							<ShoppingBag />
-							<Badge className='bg-destructive dark:text-white absolute bottom-0 z-50 w-4 h-4 font-bold text-[8px] '>
-								25
-							</Badge>
-						</Link>
+						<CartIcon />
 					</div>
 				</div>
 			</div>

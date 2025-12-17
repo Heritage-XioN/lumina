@@ -37,6 +37,7 @@ interface product {
 
 // example product data
 const product = {
+	id: 1,
 	name: 'Minimalist Audio Pods',
 	category: 'Audio',
 	price: 199.0,

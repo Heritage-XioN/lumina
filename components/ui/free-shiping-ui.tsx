@@ -1,22 +1,13 @@
 "use client"
-import { initialCartItems } from '@/lib/data';
+
+import { CartItem } from '@/types/product';
 import React, { useState } from 'react';
 
 
-// Types
-interface CartItem {
-	id: string;
-	name: string;
-	variant: string;
-	price: number;
-	quantity: number;
-	image: string;
-	inStock: boolean;
-}
 
 const FREE_SHIPPING_THRESHOLD = 1000;
 const FreeShipingUi = () => {
-	const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
+	const [cartItems, setCartItems] = useState<CartItem[]>([]);
 	const subtotal = cartItems.reduce(
 		(sum, item) => sum + item.price * item.quantity,
 		0

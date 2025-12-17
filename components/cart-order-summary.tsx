@@ -1,18 +1,9 @@
 "use client"
 import React, { useState } from 'react';
-import { initialCartItems } from '../lib/data'
 import Link from 'next/link';
 import { Lock } from 'lucide-react';
+import { useCartStore } from '@/providers/cart-store-provider';
 
-interface CartItem {
-	id: string;
-	name: string;
-	variant: string;
-	price: number;
-	quantity: number;
-	image: string;
-	inStock: boolean;
-}
 
 
 const FREE_SHIPPING_THRESHOLD = 1000;
@@ -20,12 +11,15 @@ const SHIPPING_ESTIMATE = 25.0;
 const TAX_RATE = 0.08;
 
 const CartOrderSummary = () => {
-    const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems);
+	const { cart } = useCartStore(
+			(state) => state
+		);
     
-    const subtotal = cartItems.reduce(
+    const subtotal = cart.reduce(
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);
+
 	const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_ESTIMATE;
 	const taxEstimate = subtotal * TAX_RATE;
 	const total = subtotal + shipping + taxEstimate;

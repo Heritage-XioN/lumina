@@ -8,10 +8,15 @@ import Footer from '@/components/footer';
 export default function Home() {
 	return (
 		<div className=''>
+			{/* hero section */}
 			<HeroSection />
+			{/* products secion */}
 			<Products />
+			{/* features section */}
 			<Featues />
+			{/* discount section */}
 			<Discount />
+			{/* footer section */}
 			<Footer />
 		</div>
 	);

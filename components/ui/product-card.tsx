@@ -1,20 +1,34 @@
 import Image from 'next/image';
 import { Heart, ShoppingBag, StarIcon } from 'lucide-react';
 import Link from 'next/link';
-
-interface productCard {
-	name: string;
-	category: string;
-	price: number;
-	rating: number;
-	reviews: number;
-	image1: string;
-	image2: string;
-}
+import { productCard, productObj } from '@/types/product';
+import { useCartStore } from '@/providers/cart-store-provider';
+import { CartItemState } from '@/types/cart-store';
 
 
 
-const ProductCard = ({name, category, price, rating, reviews, image1, image2}: productCard) => {
+const ProductCard = ({
+	id,
+	name,
+	category,
+	price,
+	rating,
+	reviews,
+	image1,
+	image2,
+	variant,
+}: productCard) => {
+
+	const cartData: CartItemState = {
+		id: id,
+		name: name,
+		variant: variant,
+		price: price,
+		quantity: 1,
+		image: image1,
+		inStock: true,
+	};
+	const { addToCart } = useCartStore((state) => state);
 	return (
 		<div className='w-full max-w-[320px] mx-auto group cursor-pointer dark:bg-slate-900 dark:rounded-2xl dark:border dark:border-slate-800 dark:hover:border-violet-500/30 dark:transition-all dark:duration-300 dark:hover:shadow-2xl dark:hover:shadow-violet-900/10 pb-3'>
 			<div className='relative aspect-square bg-gray-100 rounded-2xl overflow-hidden'>
@@ -51,7 +65,7 @@ const ProductCard = ({name, category, price, rating, reviews, image1, image2}: p
 				{/* ADD TO CART BUTTON */}
 				<div className='absolute bottom-4 left-4 right-4 z-30 translate-y-4 opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100'>
 					<button
-						onClick={() => console.log('testing cart button')}
+						onClick={() => addToCart(cartData)}
 						className='w-full bg-white text-gray-900 font-medium py-3 rounded-xl shadow-lg hover:bg-gray-50 flex items-center justify-center gap-2 transition-transform active:scale-95 cursor-pointer'
 					>
 						<ShoppingBag className='w-4 h-4' />
@@ -78,7 +92,9 @@ const ProductCard = ({name, category, price, rating, reviews, image1, image2}: p
 						<div className='flex justify-end items-center gap-1 mt-2 '>
 							<Image src={'/star.png'} alt='star' width={16} height={16} />
 							<p className='text-xs leading-[133%]'>{rating}</p>
-							<p className='text-xs leading-[133%] text-link-text'>({reviews})</p>
+							<p className='text-xs leading-[133%] text-link-text'>
+								({reviews})
+							</p>
 						</div>
 					</div>
 				</div>
