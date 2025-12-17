@@ -10,9 +10,13 @@ const CartIcon = () => {
 	return (
 		<Link href={'/cart'} className='relative cursor-pointer'>
 			<ShoppingBag />
-			<Badge className='bg-destructive dark:text-white absolute bottom-0 z-50 w-4 h-4 font-bold text-[12px] '>
-				{cart.length}
-			</Badge>
+			{cart.length === 0 ? (
+				''
+			) : (
+				<Badge className='bg-destructive dark:text-white absolute bottom-0 z-50 w-4 h-4 font-bold text-[12px] '>
+					{cart.length}
+				</Badge>
+			)}
 		</Link>
 	);
 };
