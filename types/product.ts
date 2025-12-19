@@ -1,13 +1,3 @@
-// Types
-export interface CartItem {
-	id: number;
-	name: string;
-	variant: string;
-	price: number;
-	quantity: number;
-	image: string;
-	inStock: boolean;
-}
 
 export interface ProductColor {
 	name: string;

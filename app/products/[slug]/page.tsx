@@ -51,7 +51,7 @@ const product = {
 		{
 			name: 'Pearl White',
 			value: 'white',
-			bgClass: 'bg-white border border-gray-300 dark:border-gray-600',
+			bgClass: 'bg-white border',
 		},
 		{ name: 'Obsidian Black', value: 'black', bgClass: 'bg-gray-900' },
 		{ name: 'Violet', value: 'violet', bgClass: 'bg-violet-500' },
