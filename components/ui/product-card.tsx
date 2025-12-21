@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 const ProductCard = ({
 	id,
 	name,
+	slug,
 	category,
 	price,
 	rating,
@@ -19,6 +20,8 @@ const ProductCard = ({
 	image2,
 	variant,
 }: productCard) => {
+
+	// cart data
 	const cartData: CartItemState = {
 		id: id,
 		name: name,
@@ -28,7 +31,10 @@ const ProductCard = ({
 		image: image1,
 		inStock: true,
 	};
+
+	// cart store instance
 	const { addToCart } = useCartStore((state) => state);
+
 	return (
 		<div className='w-full max-w-[320px] mx-auto group cursor-pointer dark:bg-slate-900 dark:rounded-2xl dark:border dark:border-slate-800 dark:hover:border-violet-500/30 dark:transition-all dark:duration-300 dark:hover:shadow-2xl dark:hover:shadow-violet-900/10 pb-3'>
 			<div className='relative aspect-square bg-gray-100 rounded-2xl overflow-hidden'>
@@ -78,7 +84,7 @@ const ProductCard = ({
 			</div>
 
 			{/* Product Details */}
-			<Link href={`/products/${name}`}>
+			<Link href={`/products/${slug}`}>
 				<div className='mt-4 px-3 pt-2 flex flex-col justify-between min-h-22'>
 					<div className='flex justify-between'>
 						<h3 className='text-gray-900 font-medium text-lg dark:text-white dark:group-hover:text-violet-300 transition-colors'>

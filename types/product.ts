@@ -1,8 +1,12 @@
+export interface Category {
+	id: number;
+	name: string;
+}
 
 export interface ProductColor {
 	name: string;
 	value: string;
-	bgClass: string;
+	bg_class: string;
 }
 
 export interface ProductSpec {
@@ -19,14 +23,16 @@ export interface ProductImage {
 export interface productObj {
 	id: number;
     name: string;
-    category: string;
+    categories: Category;
+	category_id: number;
+	slug: string;
     price: number;
-    originalPrice: number;
+    original_price: number;
     rating: number;
     reviews: number;
-    inStock: boolean;
+    in_stock: boolean;
     description: string;
-    colors: ProductColor[];
+    colour_variants: ProductColor[];
     specifications: ProductSpec[];
     images: ProductImage[];
 }
@@ -35,6 +41,7 @@ export interface productCard {
 	id: number;
 	name: string;
 	category: string;
+	slug: string;
 	price: number;
 	rating: number;
 	reviews: number;

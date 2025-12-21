@@ -12,7 +12,7 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 	const { addToCart } = useCartStore((state) => state);
 
 	const [selectedColor, setSelectedColor] = useState<ProductColor>(
-		product.colors[1]
+		product.colour_variants[1]
 	);
 	const [quantity, setQuantity] = useState(1);
 	const handleQuantityChange = (delta: number) => {
@@ -26,7 +26,7 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 		price: product.price,
 		quantity: quantity,
 		image: product.images[0].src,
-		inStock: true,
+		inStock: product.in_stock,
 	};
 
 	return (
@@ -56,7 +56,7 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 					${product.price.toFixed(2)}
 				</span>
 				<span className='text-lg text-muted-foreground line-through'>
-					${product.originalPrice.toFixed(2)}
+					${product.original_price.toFixed(2)}
 				</span>
 			</div>
 
@@ -72,12 +72,12 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 					<span className='text-muted-foreground'>{selectedColor.name}</span>
 				</div>
 				<div className='flex items-center gap-3'>
-					{product.colors.map((color) => (
+					{product.colour_variants.map((color) => (
 						<button
 							key={color.value}
 							onClick={() => setSelectedColor(color)}
 							className={`w-10 h-10 rounded-full transition-all duration-200 ${
-								color.bgClass
+								color.bg_class
 							} ${
 								selectedColor.value === color.value
 									? 'ring-2 ring-violet-500 ring-offset-2 ring-offset-background scale-110'
@@ -112,7 +112,7 @@ const ProductInfo = ({ product }: { product: productObj }) => {
 							+
 						</button>
 					</div>
-					{product.inStock && (
+					{product.in_stock && (
 						<div className='flex items-center gap-2'>
 							<span className='w-2 h-2 rounded-full bg-emerald-500' />
 							<span className='text-emerald-500 font-medium'>In Stock</span>

@@ -3,8 +3,9 @@ import Products from '@/components/products';
 import Features from '@/components/features';
 import Discount from '@/components/discount';
 import Footer from '@/components/footer';
+import { fetchProductDetails } from '@/supabase/server';
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<div className=''>
 			{/* hero section */}

@@ -1,40 +1,51 @@
 'use client';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Funnel } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TabsProduct from './tabs-product';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { supabase } from '@/supabase/client';
+
+// Define the category type based on your data structure
+interface Category {
+	id: number;
+	name: string;
+}
 
 const Products = () => {
-	const tabItem = [
-		{
-			value: 'tech',
-			label: 'Tech',
-		},
-		{
-			value: 'audio',
-			label: 'Audio',
-		},
-		{
-			value: 'furniture',
-			label: 'Furniture',
-		},
-		{
-			value: 'apparel',
-			label: 'Apparel',
-		},
-		{
-			value: 'accessories',
-			label: 'Accessories',
-		},
-		{
-			value: 'home',
-			label: 'Home',
-		},
-	];
-
+	const [categories, setCategories] = useState<Category[] | null>(null);
 	const [value, setValue] = useState('all');
+
+	useEffect(() => {
+		const loadCategories = async () => {
+			try {
+				const { data, error } = await supabase.from('categories').select('*');
+
+				if (error) {
+					console.error('Error fetching categories h:', error);
+					return;
+				}
+
+				console.log(data);
+				setCategories(data);
+			} catch (error) {
+				console.error('Error fetching categories:', error);
+			}
+		};
+
+		loadCategories();
+
+	}, []);
+
+	if (!categories) {
+		return (
+			<main className='min-h-screen pt-24 pb-16 px-4 md:px-8 lg:px-16 xl:px-24 bg-background flex items-center justify-center'>
+				<p className='text-muted-foreground'>Product not found</p>
+			</main>
+		);
+	}
 
 	return (
 		<div className='pt-26 pb-20 px-4 md:px-9 lg:px-20'>
@@ -48,16 +59,14 @@ const Products = () => {
 					{/* tab navigation, filter button and result */}
 					<div className='flex justify-between items-center'>
 						<TabsList className='w-[55%]'>
-							<TabsTrigger value='all' onClick={() => setValue('all')}>
-								All
-							</TabsTrigger>
-							{tabItem.map((item) => (
+							<TabsTrigger value='all'>All</TabsTrigger>
+							{categories.map((item) => (
 								<TabsTrigger
-									key={item.value}
-									value={item.value}
-									onClick={() => setValue(item.value)}
+									key={item.id}
+									value={item.name}
+									onClick={() => setValue(item.name)}
 								>
-									{item.label}
+									{item.name}
 								</TabsTrigger>
 							))}
 						</TabsList>
@@ -72,15 +81,15 @@ const Products = () => {
 						</div>
 					</div>
 					{/* tab content */}
-					<TabsContent value={value} className='pt-6'>
-						<TabsProduct value={value} />
+					<TabsContent value={'all'} className='pt-6'>
+						<TabsProduct category_id={''} />
 					</TabsContent>
 				</Tabs>
 			</div>
 			{/* load more component link */}
 			<div className='flex md:hidden lg:flex justify-center items-center w-full'>
 				<Link
-					href={`/${value}`}
+					href={`/`}
 					className='flex justify-center items-center text-link-text text-[16px] leadimg-[150%] rounded-lg border px-6 py-4 hover:bg-card/50 transition-colors dark:border-slate-700 dark:hover:bg-card/80'
 				>
 					Load more products <ArrowRight className='ml-2 w-4 h-4' />
